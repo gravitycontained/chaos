@@ -35,5 +35,7 @@ CheckOptions:
     value:           'NULL'
   - key: 			 google-readability-braces-around-statements.ShortStatementLines
     value:			 '2'
+  - key: readability-magic-numbers.IgnoreNumbers
+    value:			 '0'
 ...
 
