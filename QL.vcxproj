@@ -179,16 +179,23 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\ql-core\definition\definition.hpp" />
+    <ClInclude Include="src\ql-core\ql\constexpr\apply.hpp" />
     <ClInclude Include="src\ql-core\ql\constexpr\constexpr.hpp" />
+    <ClInclude Include="src\ql-core\ql\constexpr\index.hpp" />
     <ClInclude Include="src\ql-core\ql\constexpr\iterate.hpp" />
+    <ClInclude Include="src\ql-core\ql\definition\library\library.hpp" />
     <ClInclude Include="src\ql-core\ql\definition\type.hpp" />
+    <ClInclude Include="src\ql-core\ql\maths.hpp" />
     <ClInclude Include="src\ql-core\ql\maths\maths.hpp" />
     <ClInclude Include="src\ql-core\ql\maths\range.hpp" />
+    <ClInclude Include="src\ql-core\ql\string\string.hpp" />
     <ClInclude Include="src\ql-core\ql\string\to-string.hpp" />
     <ClInclude Include="src\ql-core\ql\string\tuple\to-string.hpp" />
     <ClInclude Include="src\ql-core\ql\string\tuple\tuple.hpp" />
+    <ClInclude Include="src\ql-core\ql\system\system.hpp" />
     <ClInclude Include="src\ql-core\ql\transform\possibilities.hpp" />
     <ClInclude Include="src\ql-core\ql\transform\transform.hpp" />
+    <ClInclude Include="src\ql-core\ql\transform\type\type.hpp" />
     <ClInclude Include="src\ql-core\ql\transform\type\convert.hpp" />
     <ClInclude Include="src\ql-core\ql\transform\type\iterate.hpp" />
     <ClInclude Include="src\ql-core\ql\type-traits\arithmetic.hpp" />
@@ -204,6 +211,7 @@
     <ClInclude Include="src\ql-core\ql\type-traits\container-subtype.hpp" />
     <ClInclude Include="src\ql-core\ql\type-traits\transform\transform.hpp" />
     <ClInclude Include="src\ql-core\ql\type-traits\transform\to-tuple.hpp" />
+    <ClInclude Include="src\ql-core\ql\type-traits\transform\tuple-to-array.hpp" />
     <ClInclude Include="src\ql-core\ql\type-traits\tuple\tuple-size.hpp" />
     <ClInclude Include="src\ql-core\system\print.hpp" />
   </ItemGroup>
