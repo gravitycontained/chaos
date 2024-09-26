@@ -1,0 +1,3 @@
+[submodule "src/ql-core"]
+	path = src/ql-core
+	url = https://github.com/gravitycontained/ql-core.git
