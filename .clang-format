@@ -1,14 +1,18 @@
----
-BasedOnStyle:  GNU
+﻿---
+BasedOnStyle:  Chromium
 AlignAfterOpenBracket: Align
 AllowAllParametersOfDeclarationOnNextLine: false
-AllowShortBlocksOnASingleLine: true
+AllowShortBlocksOnASingleLine: false
 AllowShortCaseLabelsOnASingleLine: true
 AllowShortFunctionsOnASingleLine: None
+
+ColumnLimit: 130
+
 # Uncommenting these lines will sometimes result in lines following an
 # if(){} or for(){} block being attached to the end of the block.
 # AllowShortIfStatementsOnASingleLine: true
 # AllowShortLoopsOnASingleLine: true
+
 AlwaysBreakAfterDefinitionReturnType: None
 AlwaysBreakAfterReturnType: None
 BreakBeforeBraces: Allman
@@ -25,10 +29,10 @@ BraceWrapping:
   BeforeCatch:     true
   BeforeElse:      true
   IndentBraces:    true
-  SplitEmptyFunction: false
-  SplitEmptyRecord: false
-  SplitEmptyNamespace: false
-ContinuationIndentWidth: 2
+  SplitEmptyFunction: true
+  SplitEmptyRecord: true
+  SplitEmptyNamespace: true
+  
 Cpp11BracedListStyle: true
 KeepEmptyLinesAtTheStartOfBlocks: false
 Language:        Cpp
@@ -36,11 +40,22 @@ MaxEmptyLinesToKeep: 1
 NamespaceIndentation: All
 PenaltyExcessCharacter: 100
 PenaltyReturnTypeOnItsOwnLine: 1
-PointerAlignment: Right
+PointerAlignment: Left
 SeparateDefinitionBlocks: Always
 SortIncludes: false
-SpaceBeforeParens: Never
+
+SpaceBeforeParens: Custom
+SpaceBeforeParensOptions:
+  AfterControlStatements: true
+  AfterRequiresInClause: true
+  
 SpacesInContainerLiterals: false
 Standard:        Cpp11
+
+TabWidth: 2
+UseTab: Always
+
+IndentRequiresClause: false
+
 ...
 
