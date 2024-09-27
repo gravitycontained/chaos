@@ -213,6 +213,7 @@
     <ClInclude Include="src\ql-core\ql\type-traits\transform\to-tuple.hpp" />
     <ClInclude Include="src\ql-core\ql\type-traits\transform\tuple-to-array.hpp" />
     <ClInclude Include="src\ql-core\ql\type-traits\tuple\tuple-size.hpp" />
+    <ClInclude Include="src\ql-core\ql\type-traits\tuple\tuple-type.hpp" />
     <ClInclude Include="src\ql-core\system\print.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

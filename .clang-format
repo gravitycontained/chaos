@@ -28,7 +28,7 @@ BraceWrapping:
   SplitEmptyFunction: false
   SplitEmptyRecord: false
   SplitEmptyNamespace: false
-ContinuationIndentWidth: 4
+ContinuationIndentWidth: 2
 Cpp11BracedListStyle: true
 KeepEmptyLinesAtTheStartOfBlocks: false
 Language:        Cpp

@@ -1,5 +1,4 @@
 x64/
-src/ql-core/
 .vs
 *.vcxproj.filters
 *.vcxproj.user
