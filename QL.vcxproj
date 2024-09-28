@@ -91,7 +91,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <IncludePath>C:\dev\packages\vcpkg\installed\x64-windows-static\include;.\src\ql-core;$(IncludePath)</IncludePath>
     <LibraryPath>C:\dev\packages\vcpkg\installed\x64-windows-static\lib;$(LibraryPath)</LibraryPath>
-    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
     <EnableClangTidyCodeAnalysis>true</EnableClangTidyCodeAnalysis>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -158,7 +158,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>SFML_STATIC;QL_EXPORT;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>SFML_STATIC;NOMINMAX;QL_EXPORT;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
@@ -176,9 +176,16 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\ql-core\ql\advanced-type\iterative\ema.cpp" />
+    <ClCompile Include="src\ql-core\ql\random\random.cpp" />
+    <ClCompile Include="src\ql-core\ql\string\format.cpp" />
+    <ClCompile Include="src\ql-core\ql\system\print\print.cpp" />
+    <ClCompile Include="src\ql-core\ql\time\time.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\ql-core\definition\definition.hpp" />
+    <ClInclude Include="src\ql-core\ql\advanced-type\advanced-type.hpp" />
+    <ClInclude Include="src\ql-core\ql\advanced-type\fundamental\fundamental.hpp" />
     <ClInclude Include="src\ql-core\ql\constexpr\apply.hpp" />
     <ClInclude Include="src\ql-core\ql\constexpr\chain.hpp" />
     <ClInclude Include="src\ql-core\ql\constexpr\constexpr.hpp" />
@@ -186,61 +193,85 @@
     <ClInclude Include="src\ql-core\ql\constexpr\iterate.hpp" />
     <ClInclude Include="src\ql-core\ql\constexpr\maths\maths.hpp" />
     <ClInclude Include="src\ql-core\ql\constexpr\maths\sqrt.hpp" />
+    <ClInclude Include="src\ql-core\ql\definition\arithmetic-type.hpp" />
+    <ClInclude Include="src\ql-core\ql\definition\definition.hpp" />
     <ClInclude Include="src\ql-core\ql\definition\library\library.hpp" />
     <ClInclude Include="src\ql-core\ql\definition\type.hpp" />
-    <ClInclude Include="src\ql-core\ql\maths.hpp" />
-    <ClInclude Include="src\ql-core\ql\maths\bit-rotate.hpp" />
+    <ClInclude Include="src\ql-core\ql\maths\arithmetic\arithmetic.hpp" />
+    <ClInclude Include="src\ql-core\ql\maths\bit\rotate.hpp" />
+    <ClInclude Include="src\ql-core\ql\maths\bit\bit.hpp" />
+    <ClInclude Include="src\ql-core\ql\maths\fun\fun.hpp" />
+    <ClInclude Include="src\ql-core\ql\maths\fun\prime.hpp" />
     <ClInclude Include="src\ql-core\ql\maths\maths.hpp" />
     <ClInclude Include="src\ql-core\ql\maths\operation.hpp" />
-    <ClInclude Include="src\ql-core\ql\maths\range.hpp" />
-    <ClInclude Include="src\ql-core\ql\maths\type\hitbox.hpp" />
-    <ClInclude Include="src\ql-core\ql\maths\type\matrix.hpp" />
+    <ClInclude Include="src\ql-core\ql\advanced-type\color\color.hpp" />
+    <ClInclude Include="src\ql-core\ql\advanced-type\graphics\graphics.hpp" />
+    <ClInclude Include="src\ql-core\ql\advanced-type\iterative\ema.hpp" />
+    <ClInclude Include="src\ql-core\ql\advanced-type\iterative\iterative.hpp" />
+    <ClInclude Include="src\ql-core\ql\ql.hpp" />
+    <ClInclude Include="src\ql-core\ql\string\format.hpp" />
+    <ClInclude Include="src\ql-core\ql\system\exception\exception.hpp" />
+    <ClInclude Include="src\ql-core\ql\advanced-type\color\print-color.hpp" />
+    <ClInclude Include="src\ql-core\ql\transform\bit\bit.hpp" />
+    <ClInclude Include="src\ql-core\ql\transform\interpolate\cubic.hpp" />
+    <ClInclude Include="src\ql-core\ql\transform\interpolate\interpolate.hpp" />
+    <ClInclude Include="src\ql-core\ql\transform\interpolate\linear.hpp" />
+    <ClInclude Include="src\ql-core\ql\transform\limit.hpp" />
+    <ClInclude Include="src\ql-core\ql\advanced-type\graphics\hitbox.hpp" />
+    <ClInclude Include="src\ql-core\ql\advanced-type\fundamental\matrix.hpp" />
     <ClInclude Include="src\ql-core\ql\maths\rotate.hpp" />
-    <ClInclude Include="src\ql-core\ql\maths\type\straight-line.hpp" />
-    <ClInclude Include="src\ql-core\ql\maths\type\type.hpp" />
-    <ClInclude Include="src\ql-core\ql\maths\type\vector.hpp" />
+    <ClInclude Include="src\ql-core\ql\advanced-type\graphics\straight-line.hpp" />
+    <ClInclude Include="src\ql-core\ql\advanced-type\fundamental\vector.hpp" />
+    <ClInclude Include="src\ql-core\ql\random\random.hpp" />
     <ClInclude Include="src\ql-core\ql\string\string.hpp" />
     <ClInclude Include="src\ql-core\ql\string\to-string.hpp" />
-    <ClInclude Include="src\ql-core\ql\system\print.hpp" />
+    <ClInclude Include="src\ql-core\ql\system\print\print.hpp" />
     <ClInclude Include="src\ql-core\ql\system\system.hpp" />
+    <ClInclude Include="src\ql-core\ql\time\time.hpp" />
     <ClInclude Include="src\ql-core\ql\transform\cast\cast.hpp" />
     <ClInclude Include="src\ql-core\ql\transform\container\container.hpp" />
     <ClInclude Include="src\ql-core\ql\transform\container\filter.hpp" />
     <ClInclude Include="src\ql-core\ql\transform\container\map.hpp" />
+    <ClInclude Include="src\ql-core\ql\transform\memory\memory.hpp" />
     <ClInclude Include="src\ql-core\ql\transform\possibilities.hpp" />
     <ClInclude Include="src\ql-core\ql\transform\transform.hpp" />
-    <ClInclude Include="src\ql-core\ql\type-traits\arithmetic\arithmetic.hpp" />
-    <ClInclude Include="src\ql-core\ql\type-traits\arithmetic\is-arithmetic.hpp" />
-    <ClInclude Include="src\ql-core\ql\type-traits\arithmetic\operation.hpp" />
-    <ClInclude Include="src\ql-core\ql\type-traits\arithmetic\bit-count-of-max-value.hpp" />
-    <ClInclude Include="src\ql-core\ql\type-traits\container\is-container.hpp" />
-    <ClInclude Include="src\ql-core\ql\type-traits\functional\functional.hpp" />
-    <ClInclude Include="src\ql-core\ql\type-traits\reference.hpp" />
-    <ClInclude Include="src\ql-core\ql\type-traits\string\has-to-string.hpp" />
-    <ClInclude Include="src\ql-core\ql\type-traits\string\is-printable.hpp" />
-    <ClInclude Include="src\ql-core\ql\type-traits\expression.hpp" />
-    <ClInclude Include="src\ql-core\ql\type-traits\size\size.hpp" />
-    <ClInclude Include="src\ql-core\ql\type-traits\transform\array-to-tuple.hpp" />
-    <ClInclude Include="src\ql-core\ql\type-traits\tuple\auto-tie.hpp" />
-    <ClInclude Include="src\ql-core\ql\type-traits\tuple\is-tuple.hpp" />
-    <ClInclude Include="src\ql-core\ql\type-traits\compare\compare.hpp" />
-    <ClInclude Include="src\ql-core\ql\type-traits\conditional.hpp" />
-    <ClInclude Include="src\ql-core\ql\type-traits\container\container.hpp" />
-    <ClInclude Include="src\ql-core\ql\type-traits\container\subtype.hpp" />
-    <ClInclude Include="src\ql-core\ql\type-traits\container\type.hpp" />
-    <ClInclude Include="src\ql-core\ql\type-traits\declval.hpp" />
-    <ClInclude Include="src\ql-core\ql\type-traits\identity.hpp" />
-    <ClInclude Include="src\ql-core\ql\type-traits\numeric.hpp" />
-    <ClInclude Include="src\ql-core\ql\type-traits\string\string.hpp" />
-    <ClInclude Include="src\ql-core\ql\type-traits\string\type.hpp" />
-    <ClInclude Include="src\ql-core\ql\type-traits\transform\transform.hpp" />
-    <ClInclude Include="src\ql-core\ql\type-traits\transform\to-tuple.hpp" />
-    <ClInclude Include="src\ql-core\ql\type-traits\transform\tuple-to-array.hpp" />
-    <ClInclude Include="src\ql-core\ql\type-traits\tuple\size.hpp" />
-    <ClInclude Include="src\ql-core\ql\type-traits\tuple\type.hpp" />
-    <ClInclude Include="src\ql-core\ql\type-traits\tuple\value.hpp" />
-    <ClInclude Include="src\ql-core\ql\type-traits\variadic\type.hpp" />
-    <ClInclude Include="src\ql-core\ql\type-traits\variadic\value.hpp" />
+    <ClInclude Include="src\ql-core\ql\type\arithmetic\arithmetic.hpp" />
+    <ClInclude Include="src\ql-core\ql\type\arithmetic\is-arithmetic.hpp" />
+    <ClInclude Include="src\ql-core\ql\type\arithmetic\operation.hpp" />
+    <ClInclude Include="src\ql-core\ql\type\arithmetic\bit-count-of-max-value.hpp" />
+    <ClInclude Include="src\ql-core\ql\type\bit\bit.hpp" />
+    <ClInclude Include="src\ql-core\ql\type\bit\type.hpp" />
+    <ClInclude Include="src\ql-core\ql\type\container\is-container.hpp" />
+    <ClInclude Include="src\ql-core\ql\type\functional\functional.hpp" />
+    <ClInclude Include="src\ql-core\ql\type\reference.hpp" />
+    <ClInclude Include="src\ql-core\ql\type\string\has-to-string.hpp" />
+    <ClInclude Include="src\ql-core\ql\type\string\info.hpp" />
+    <ClInclude Include="src\ql-core\ql\type\string\is-printable.hpp" />
+    <ClInclude Include="src\ql-core\ql\type\expression.hpp" />
+    <ClInclude Include="src\ql-core\ql\type\size\size.hpp" />
+    <ClInclude Include="src\ql-core\ql\type\transform\array-to-tuple.hpp" />
+    <ClInclude Include="src\ql-core\ql\type\tuple\auto-tie.hpp" />
+    <ClInclude Include="src\ql-core\ql\type\tuple\is-tuple.hpp" />
+    <ClInclude Include="src\ql-core\ql\type\compare\compare.hpp" />
+    <ClInclude Include="src\ql-core\ql\type\conditional.hpp" />
+    <ClInclude Include="src\ql-core\ql\type\container\container.hpp" />
+    <ClInclude Include="src\ql-core\ql\type\container\subtype.hpp" />
+    <ClInclude Include="src\ql-core\ql\type\container\type.hpp" />
+    <ClInclude Include="src\ql-core\ql\type\declval.hpp" />
+    <ClInclude Include="src\ql-core\ql\type\identity.hpp" />
+    <ClInclude Include="src\ql-core\ql\type\numeric.hpp" />
+    <ClInclude Include="src\ql-core\ql\type\string\string.hpp" />
+    <ClInclude Include="src\ql-core\ql\type\string\type.hpp" />
+    <ClInclude Include="src\ql-core\ql\type\transform\transform.hpp" />
+    <ClInclude Include="src\ql-core\ql\type\transform\to-tuple.hpp" />
+    <ClInclude Include="src\ql-core\ql\type\transform\tuple-to-array.hpp" />
+    <ClInclude Include="src\ql-core\ql\type\tuple\size.hpp" />
+    <ClInclude Include="src\ql-core\ql\type\tuple\tuple.hpp" />
+    <ClInclude Include="src\ql-core\ql\type\tuple\type.hpp" />
+    <ClInclude Include="src\ql-core\ql\type\tuple\value.hpp" />
+    <ClInclude Include="src\ql-core\ql\type\type.hpp" />
+    <ClInclude Include="src\ql-core\ql\type\variadic\type.hpp" />
+    <ClInclude Include="src\ql-core\ql\type\variadic\value.hpp" />
     <ClInclude Include="src\ql-core\system\print.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
