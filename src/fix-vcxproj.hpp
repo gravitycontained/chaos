@@ -24,7 +24,6 @@ void fix_vcxproj()
 
 	ql::sort(mapped, [](const auto& a, const auto& b) { return ql::size_cast(a.second) > ql::size_cast(b.second); });
 
-
 	std::string result = "\t<ItemGroup>\n";
 	for (auto& i : mapped)
 	{
@@ -34,5 +33,8 @@ void fix_vcxproj()
 	result += "\t</ItemGroup>";
 	ql::copy_to_clipboard(result);
 
-	ql::println(ql::bright_gray, "copied fixed vcxproj content with ", ql::aqua, ql::size_cast(mapped.size()), ql::bright_gray, " files to clipboard.");
+	ql::println(
+			ql::bright_gray, "copied fixed vcxproj content with ", ql::aqua, ql::size_cast(mapped.size()), ql::bright_gray,
+			" files to clipboard."
+	);
 }
