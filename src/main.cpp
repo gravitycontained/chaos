@@ -1,14 +1,17 @@
 #include <ql/ql.hpp>
 
 int main()
+try
 {
-	ql::cubic_generator_vec3 x;
+	ql::filesys::path path = "C:/dev/projects/C++/2024/QL/src/ql-core/ql";
+	auto list = path.list_current_directory_tree();
 
-	ql::aes_256_encrypted("hello world", "password");
-
-	while (true)
+	for (auto& i : list)
 	{
-		x.update(0.2);
-		ql::println("value: ", x.get());
+		ql::println(i.string());
 	}
+}
+catch (const std::exception& any)
+{
+	ql::println("Exception: ", any.what());
 }
