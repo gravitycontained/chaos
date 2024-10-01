@@ -1,22 +1,18 @@
 ﻿---
 BasedOnStyle:  Chromium
-AlignAfterOpenBracket: Align
+AlignAfterOpenBracket: BlockIndent
+AlignArrayOfStructures: Left
 AllowAllParametersOfDeclarationOnNextLine: false
 AllowShortBlocksOnASingleLine: false
-AllowShortCaseLabelsOnASingleLine: true
+AllowShortCaseLabelsOnASingleLine: false
 AllowShortFunctionsOnASingleLine: None
 
 ColumnLimit: 130
 
-# Uncommenting these lines will sometimes result in lines following an
-# if(){} or for(){} block being attached to the end of the block.
-# AllowShortIfStatementsOnASingleLine: true
-# AllowShortLoopsOnASingleLine: true
-
 AlwaysBreakAfterDefinitionReturnType: None
 AlwaysBreakAfterReturnType: None
-BreakBeforeBraces: Allman
 AlwaysBreakTemplateDeclarations: Yes
+BreakBeforeBraces: Allman
 BraceWrapping:
   AfterClass:      true
   AfterControlStatement: true

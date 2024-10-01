@@ -1,17 +1,25 @@
 #include <ql/ql.hpp>
 
+#include "fix-vcxproj.hpp"
+
 int main()
 try
 {
-	ql::filesys::path path = "C:/dev/projects/C++/2024/QL/src/ql-core/ql";
-	auto list = path.list_current_directory_tree();
+	fix_vcxproj();
 
-	for (auto& i : list)
-	{
-		ql::println(i.string());
-	}
+	using type = std::vector<std::pair<int, std::string>>;
+
+	type values = {
+			{1, "one"	 },
+			{2, "two"	 },
+			{3, "three"}
+	};
+	ql::apply_iterate(
+			values, [](auto info, auto value)
+			{ ql::println("depth: ", info.depth, ", first: ", info.first, ", last: ", info.last, ", value: ", value); }
+	);
 }
 catch (const std::exception& any)
 {
-	ql::println("Exception: ", any.what());
+	ql::println("exception: ", any.what());
 }
