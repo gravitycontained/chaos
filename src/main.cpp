@@ -1,5 +1,5 @@
 #include <ql/ql.hpp>
-#include <ql/graphic/graphic.hpp>
+// #include <ql/graphic/graphic.hpp>
 
 #include "fix-vcxproj.hpp"
 
