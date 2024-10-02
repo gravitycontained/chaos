@@ -317,7 +317,7 @@
     <ClInclude Include="src/ql-core/ql/core/type/transform/to-tuple.hpp" />
     <ClInclude Include="src/ql-core/ql/core/type/transform/transform.hpp" />
     <ClInclude Include="src/ql-core/ql/core/type/transform/tuple-to-array.hpp" />
-    <ClInclude Include="src/ql-core/ql/core/type/tuple/auto-tie.hpp" />
+    <ClInclude Include="src\ql-core\ql\core\functional\auto-tie.hpp" />
     <ClInclude Include="src/ql-core/ql/core/type/tuple/is-tuple.hpp" />
     <ClInclude Include="src/ql-core/ql/core/type/tuple/size.hpp" />
     <ClInclude Include="src/ql-core/ql/core/type/tuple/tuple.hpp" />

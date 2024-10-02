@@ -16,13 +16,24 @@ try
 {
 	constexpr auto tuple = ql::to_tuple(1, std::array{5, 6, 7}, 3, ql::to_tuple(4, 5, test{}), std::make_pair(4, "ok"));
 
-	ql::recursive_value_apply(
-			[](auto value, auto info)
-			{ ql::println("depth: ", info.depth, ", first: ", info.first, ", last: ", info.last, ", value: ", value); }, tuple
-	);
-
 	ql::println(tuple);
-	ql::println(ql::to_string(tuple));
+
+	ql::recursive_value_apply([](auto value) { ql::println(", value: ", value); }, tuple);
+
+	//constexpr auto count = ql::constexpr_apply<ql::tuple_size<decltype(tuple)>()>(
+	//		[&](auto index)
+	//		{
+	//			ql::println("index: ", index.i, ", value: ", ql::tuple_value<index>(tuple));
+	//			//return index.i;
+	//		}
+	//);
+	ql::constexpr_iterate<ql::tuple_size<decltype(tuple)>()>(
+			[&](auto index)
+			{
+				auto&& i = ql::tuple_value<index>(std::forward<decltype(tuple)>(tuple));
+				ql::println("index: ", index.i, ", value: ", ql::tuple_value<index>(tuple));
+			}
+	);
 }
 catch (const std::exception& any)
 {
