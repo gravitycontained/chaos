@@ -31,7 +31,7 @@ void fix_vcxproj()
 		result += ql::to_string("\t\t<Cl", type, " Include=\"", i.first, "\" />\n");
 	}
 	result += "\t</ItemGroup>";
-	ql::copy_to_clipboard(result);
+	// ql::copy_to_clipboard(result);
 
 	ql::println(
 			ql::bright_gray, "copied fixed vcxproj content with ", ql::aqua, ql::size_cast(mapped.size()), ql::bright_gray,
