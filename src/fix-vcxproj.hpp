@@ -13,7 +13,7 @@ void fix_vcxproj()
 		if (file.is_directory())
 			continue;
 
-		auto string = file.string();
+		auto string = file.to_string();
 		auto isCpp = ql::string_ends_with(string, ".cpp");
 
 		if (string != "src/main.cpp")

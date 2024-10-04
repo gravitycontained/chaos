@@ -158,7 +158,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>QL_NO_SFML;QL_CIPHER;NOMINMAX;QL_EXPORT;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>QL_CIPHER;NOMINMAX;QL_EXPORT;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
@@ -177,6 +177,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src/main.cpp" />
+    <ClCompile Include="src\ql-core\ql\core\file-system\action\action.cpp" />
+    <ClCompile Include="src\ql-core\ql\core\file-system\path\path.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src/ql-core/ql/core/string/cast/cast.cpp" />
@@ -188,7 +190,7 @@
     <ClCompile Include="src/ql-core/ql/core/advanced-type/color/rgb.cpp" />
     <ClCompile Include="src/ql-core/ql/core/advanced-type/memory/save-state.cpp" />
     <ClCompile Include="src/ql-core/ql/core/advanced-type/graphic/camera.cpp" />
-    <ClCompile Include="src/ql-core/ql/core/file-system/file-system.cpp" />
+    <ClCompile Include="src\ql-core\ql\core\file-system\paths\paths.cpp" />
     <ClCompile Include="src/ql-core/ql/core/advanced-type/memory/string-collection.cpp" />
     <ClCompile Include="src/ql-core/ql/core/system/clipboard/clipboard.cpp" />
     <ClCompile Include="src/ql-core/ql/core/system/print/print.cpp" />
@@ -237,8 +239,11 @@
     <ClInclude Include="src/ql-core/ql/core/encryption/cipher/cipher.hpp" />
     <ClInclude Include="src/ql-core/ql/core/encryption/cipher/custom.hpp" />
     <ClInclude Include="src/ql-core/ql/core/encryption/encryption.hpp" />
-    <ClInclude Include="src/ql-core/ql/core/file-system/file-system.hpp" />
+    <ClInclude Include="src\ql-core\ql\core\file-system\file-system.hpp" />
+    <ClInclude Include="src\ql-core\ql\core\file-system\paths\paths.hpp" />
     <ClInclude Include="src/ql-core/ql/core/functional/functional.hpp" />
+    <ClInclude Include="src\ql-core\ql\core\file-system\action\action.hpp" />
+    <ClInclude Include="src\ql-core\ql\core\file-system\path\path.hpp" />
     <ClInclude Include="src\ql-core\ql\core\functional\recursive-iterate.hpp" />
     <ClInclude Include="src/ql-core/ql/core/maths/arithmetic/arithmetic.hpp" />
     <ClInclude Include="src/ql-core/ql/core/maths/circular/circular.hpp" />
@@ -301,7 +306,9 @@
     <ClInclude Include="src/ql-core/ql/core/type/container/type.hpp" />
     <ClInclude Include="src/ql-core/ql/core/type/declval.hpp" />
     <ClInclude Include="src/ql-core/ql/core/type/expression.hpp" />
-    <ClInclude Include="src/ql-core/ql/core/type/functional/functional.hpp" />
+    <ClInclude Include="src\ql-core\ql\core\type\functional\functional.hpp" />
+    <ClInclude Include="src\ql-core\ql\core\type\recursive\flat.hpp" />
+    <ClInclude Include="src\ql-core\ql\core\type\recursive\recursive.hpp" />
     <ClInclude Include="src/ql-core/ql/core/type/identity.hpp" />
     <ClInclude Include="src/ql-core/ql/core/type/numeric.hpp" />
     <ClInclude Include="src/ql-core/ql/core/type/reference.hpp" />
@@ -344,7 +351,7 @@
     <ClInclude Include="src/ql-core/ql/graphic/view-control.hpp" />
     <ClInclude Include="src/ql-core/ql/ql.hpp" />
     <ClInclude Include="src\ql-core\ql\core\string\repeat.hpp" />
-    <ClInclude Include="src\ql-core\ql\core\type\string\auto.hpp" />
+    <ClInclude Include="src\ql-core\ql\core\type\string\to-string.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include=".clang-format" />

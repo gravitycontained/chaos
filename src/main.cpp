@@ -14,11 +14,14 @@ struct test
 int main()
 try
 {
-	constexpr auto tuple = ql::to_tuple(1, std::array{5, 6, 7}, 3, ql::to_tuple(4, 5, test{}), std::make_pair(4, "ok"));
+	constexpr auto tuple = ql::to_tuple(1, std::array{5, 6, 7}, 3, ql::to_tuple(4, 5, test{}), std::make_pair(4, L"okצהצ"));
 
+	auto str = ql::to_string(tuple);
 	ql::println(tuple);
 
-	ql::recursive_value_apply([](auto value) { ql::println(", value: ", value); }, tuple);
+	ql::recursive_value_iterate([](auto value) { ql::println(", value: ", value); }, tuple);
+
+	ql::recursive_to_string_type<decltype(tuple)> y;
 
 	//constexpr auto count = ql::constexpr_apply<ql::tuple_size<decltype(tuple)>()>(
 	//		[&](auto index)
