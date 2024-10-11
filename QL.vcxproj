@@ -158,7 +158,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>QL_CIPHER;NOMINMAX;QL_EXPORT;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>SFML_STATIC;QL_CIPHER;NOMINMAX;QL_EXPORT;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
@@ -179,6 +179,7 @@
     <ClCompile Include="src/main.cpp" />
     <ClCompile Include="src\ql-core\ql\core\file-system\action\action.cpp" />
     <ClCompile Include="src\ql-core\ql\core\file-system\path\path.cpp" />
+    <ClCompile Include="src\ql-core\ql\graphic\state\base-state\base-state.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src/ql-core/ql/core/string/cast/cast.cpp" />
@@ -197,7 +198,7 @@
     <ClCompile Include="src/ql-core/ql/core/time/time.cpp" />
     <ClCompile Include="src/ql-core/ql/graphic/drawables.cpp" />
     <ClCompile Include="src/ql-core/ql/graphic/event-info.cpp" />
-    <ClCompile Include="src/ql-core/ql/graphic/framework.cpp" />
+    <ClCompile Include="src\ql-core\ql\graphic\state\state-manager\state-manager.cpp" />
     <ClCompile Include="src/ql-core/ql/graphic/resources.cpp" />
     <ClCompile Include="src/ql-core/ql/graphic/socket.cpp" />
     <ClCompile Include="src/ql-core/ql/graphic/ui-controls.cpp" />
@@ -306,6 +307,7 @@
     <ClInclude Include="src/ql-core/ql/core/type/container/type.hpp" />
     <ClInclude Include="src/ql-core/ql/core/type/declval.hpp" />
     <ClInclude Include="src/ql-core/ql/core/type/expression.hpp" />
+    <ClInclude Include="src\ql-core\ql\core\transform\container\remove-index.hpp" />
     <ClInclude Include="src\ql-core\ql\core\type\functional\functional.hpp" />
     <ClInclude Include="src\ql-core\ql\core\type\recursive\flat.hpp" />
     <ClInclude Include="src\ql-core\ql\core\type\recursive\recursive.hpp" />
@@ -340,7 +342,7 @@
     <ClInclude Include="src/ql-core/ql/core/advanced-type/color/color.hpp" />
     <ClInclude Include="src/ql-core/ql/graphic/event-info.hpp" />
     <ClInclude Include="src/ql-core/ql/core/advanced-type/color/multiplied-color.hpp" />
-    <ClInclude Include="src/ql-core/ql/graphic/framework.hpp" />
+    <ClInclude Include="src\ql-core\ql\graphic\state\state-manager\state-manager.hpp" />
     <ClInclude Include="src/ql-core/ql/graphic/graphic.hpp" />
     <ClInclude Include="src/ql-core/ql/core/advanced-type/color/print-color.hpp" />
     <ClInclude Include="src/ql-core/ql/graphic/resources.hpp" />
@@ -352,6 +354,8 @@
     <ClInclude Include="src/ql-core/ql/ql.hpp" />
     <ClInclude Include="src\ql-core\ql\core\string\repeat.hpp" />
     <ClInclude Include="src\ql-core\ql\core\type\string\to-string.hpp" />
+    <ClInclude Include="src\ql-core\ql\graphic\state\base-state\base-state.hpp" />
+    <ClInclude Include="src\ql-core\ql\graphic\state\state.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include=".clang-format" />
