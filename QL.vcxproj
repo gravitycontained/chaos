@@ -177,6 +177,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src/main.cpp" />
+    <ClCompile Include="src\ql-core\ql\core\encryption\hash\mgf1\mgf1.cpp" />
+    <ClCompile Include="src\ql-core\ql\core\encryption\hash\sha256\sha256.cpp" />
+    <ClCompile Include="src\ql-core\ql\core\encryption\hash\sha512\sha512.cpp" />
     <ClCompile Include="src\ql-core\ql\core\file-system\action\action.cpp" />
     <ClCompile Include="src\ql-core\ql\core\file-system\path\path.cpp" />
     <ClCompile Include="src\ql-core\ql\graphic\state\base-state\base-state.cpp" />
@@ -188,7 +191,7 @@
     <ClCompile Include="src/ql-core/ql/core/encryption/cipher/custom.cpp" />
     <ClCompile Include="src/ql-core/ql/core/string/format/format.cpp" />
     <ClCompile Include="src/ql-core/ql/core/string/base/base.cpp" />
-    <ClCompile Include="src/ql-core/ql/core/advanced-type/color/rgb.cpp" />
+    <ClCompile Include="src\ql-core\ql\core\advanced-type\color\rgb\rgb.cpp" />
     <ClCompile Include="src/ql-core/ql/core/advanced-type/memory/save-state.cpp" />
     <ClCompile Include="src/ql-core/ql/core/advanced-type/graphic/camera.cpp" />
     <ClCompile Include="src\ql-core\ql\core\file-system\paths\paths.cpp" />
@@ -197,10 +200,10 @@
     <ClCompile Include="src/ql-core/ql/core/system/print/print.cpp" />
     <ClCompile Include="src/ql-core/ql/core/time/time.cpp" />
     <ClCompile Include="src/ql-core/ql/graphic/drawables.cpp" />
-    <ClCompile Include="src/ql-core/ql/graphic/event-info.cpp" />
+    <ClCompile Include="src\ql-core\ql\graphic\event\event-manager\event-manager.cpp" />
     <ClCompile Include="src\ql-core\ql\graphic\state\state-manager\state-manager.cpp" />
-    <ClCompile Include="src/ql-core/ql/graphic/resources.cpp" />
-    <ClCompile Include="src/ql-core/ql/graphic/socket.cpp" />
+    <ClCompile Include="src\ql-core\ql\graphic\resources\resources.cpp" />
+    <ClCompile Include="src\ql-core\ql\core\network\socket\socket.cpp" />
     <ClCompile Include="src/ql-core/ql/graphic/ui-controls.cpp" />
     <ClInclude Include="src/ql-core/ql/core/advanced-type/container/bitset.hpp" />
     <ClInclude Include="src/ql-core/ql/core/advanced-type/container/circular-array.hpp" />
@@ -240,6 +243,12 @@
     <ClInclude Include="src/ql-core/ql/core/encryption/cipher/cipher.hpp" />
     <ClInclude Include="src/ql-core/ql/core/encryption/cipher/custom.hpp" />
     <ClInclude Include="src/ql-core/ql/core/encryption/encryption.hpp" />
+    <ClInclude Include="src\graphic.hpp" />
+    <ClInclude Include="src\ql-core\ql\core\advanced-type\color\oklch\oklch.hpp" />
+    <ClInclude Include="src\ql-core\ql\core\encryption\hash\hash.hpp" />
+    <ClInclude Include="src\ql-core\ql\core\encryption\hash\mgf1\mgf1.hpp" />
+    <ClInclude Include="src\ql-core\ql\core\encryption\hash\sha256\sha256.hpp" />
+    <ClInclude Include="src\ql-core\ql\core\encryption\hash\sha512\sha512.hpp" />
     <ClInclude Include="src\ql-core\ql\core\file-system\file-system.hpp" />
     <ClInclude Include="src\ql-core\ql\core\file-system\paths\paths.hpp" />
     <ClInclude Include="src/ql-core/ql/core/functional/functional.hpp" />
@@ -307,8 +316,10 @@
     <ClInclude Include="src/ql-core/ql/core/type/container/type.hpp" />
     <ClInclude Include="src/ql-core/ql/core/type/declval.hpp" />
     <ClInclude Include="src/ql-core/ql/core/type/expression.hpp" />
+    <ClInclude Include="src\ql-core\ql\core\network\network.hpp" />
     <ClInclude Include="src\ql-core\ql\core\transform\container\remove-index.hpp" />
     <ClInclude Include="src\ql-core\ql\core\type\functional\functional.hpp" />
+    <ClInclude Include="src\ql-core\ql\core\type\graphic\graphic.hpp" />
     <ClInclude Include="src\ql-core\ql\core\type\recursive\flat.hpp" />
     <ClInclude Include="src\ql-core\ql\core\type\recursive\recursive.hpp" />
     <ClInclude Include="src/ql-core/ql/core/type/identity.hpp" />
@@ -340,14 +351,16 @@
     <ClInclude Include="src/ql-core/ql/core/advanced-type/advanced-type.hpp" />
     <ClInclude Include="src/ql-core/ql/graphic/drawables.hpp" />
     <ClInclude Include="src/ql-core/ql/core/advanced-type/color/color.hpp" />
-    <ClInclude Include="src/ql-core/ql/graphic/event-info.hpp" />
+    <ClInclude Include="src\ql-core\ql\graphic\event\event-manager\event-manager.hpp" />
     <ClInclude Include="src/ql-core/ql/core/advanced-type/color/multiplied-color.hpp" />
+    <ClInclude Include="src\ql-core\ql\graphic\event\event.hpp" />
+    <ClInclude Include="src\ql-core\ql\graphic\render\render.hpp" />
     <ClInclude Include="src\ql-core\ql\graphic\state\state-manager\state-manager.hpp" />
     <ClInclude Include="src/ql-core/ql/graphic/graphic.hpp" />
     <ClInclude Include="src/ql-core/ql/core/advanced-type/color/print-color.hpp" />
-    <ClInclude Include="src/ql-core/ql/graphic/resources.hpp" />
-    <ClInclude Include="src/ql-core/ql/core/advanced-type/color/rgb.hpp" />
-    <ClInclude Include="src/ql-core/ql/graphic/socket.hpp" />
+    <ClInclude Include="src\ql-core\ql\graphic\resources\resources.hpp" />
+    <ClInclude Include="src\ql-core\ql\core\advanced-type\color\rgb\rgb.hpp" />
+    <ClInclude Include="src\ql-core\ql\core\network\socket\socket.hpp" />
     <ClInclude Include="src/ql-core/ql/core/advanced-type/container/array.hpp" />
     <ClInclude Include="src/ql-core/ql/graphic/ui-controls.hpp" />
     <ClInclude Include="src/ql-core/ql/graphic/view-control.hpp" />
@@ -356,6 +369,7 @@
     <ClInclude Include="src\ql-core\ql\core\type\string\to-string.hpp" />
     <ClInclude Include="src\ql-core\ql\graphic\state\base-state\base-state.hpp" />
     <ClInclude Include="src\ql-core\ql\graphic\state\state.hpp" />
+    <ClInclude Include="src\serialize.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include=".clang-format" />
