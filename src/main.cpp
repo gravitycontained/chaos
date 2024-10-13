@@ -13,7 +13,6 @@
 int main()
 try
 {
-	// Test example usage
 	//auto oklch = ql::oklch{0.6265, 0.2467, 30, 0.5};
 	auto oklch = ql::oklch{ql::get_random_transparency_color()};
 
