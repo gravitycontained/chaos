@@ -55,4 +55,4 @@ namespace graphic
 		state_manager.add_state<main_state>();
 		state_manager.game_loop();
 	}
-}
+}	 // namespace graphic
