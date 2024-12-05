@@ -34,7 +34,7 @@ void fix_vcxproj()
 	// ql::copy_to_clipboard(result);
 
 	ql::println(
-			ql::bright_gray, "copied fixed vcxproj content with ", ql::aqua, ql::size_cast(mapped.size()), ql::bright_gray,
+			ql::color::bright_gray, "copied fixed vcxproj content with ", ql::color::aqua, ql::size_cast(mapped.size()), ql::color::bright_gray,
 			" files to clipboard."
 	);
 }

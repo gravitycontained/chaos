@@ -6,7 +6,7 @@ namespace graphic
 {
 	struct circle
 	{
-		ql::circle c;
+		ql::circle_shape c;
 
 		circle()
 		{
