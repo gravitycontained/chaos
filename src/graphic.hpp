@@ -2,49 +2,33 @@
 
 #include <ql/ql.hpp>
 
+#pragma once
+
+struct main_example
+{
+	ql_sync;
+
+	void init()
+	{
+	}
+
+	void update(ql::update_manager& update)
+	{
+	}
+
+	void draw(ql::render& render) const
+	{
+	}
+};
+
+struct main_state : ql::base_state
+{
+	main_example main;
+	ql_state_sync(this->main);
+};
+
 namespace graphic
 {
-	struct circle
-	{
-		ql::circle_shape c;
-
-		circle()
-		{
-			this->c.set_radius(50.f);
-			this->c.set_color(ql::get_random_color());
-
-			this->c.set_center(ql::random(ql::vec2(10, 10)));
-		}
-
-		void draw(ql::render& draw) const
-		{
-			draw.draw(this->c);
-		}
-	};
-
-	struct main_state : ql::base_state
-	{
-		ql::view_control view;
-		circle circle;
-
-		void init() override
-		{
-			this->call_on_resize();
-
-			this->view.set_hitbox(*this);
-		}
-
-		void updating() override
-		{
-			this->update(this->view);
-		}
-
-		void drawing() override
-		{
-			this->draw(this->circle, this->view);
-		}
-	};
-
 	void run()
 	{
 		ql::state_manager state_manager;

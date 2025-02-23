@@ -1,5 +1,11 @@
 ﻿---
+
 BasedOnStyle:  Chromium
+
+TabWidth: 2
+UseTab: Always
+ContinuationIndentWidth: 2
+
 AlignAfterOpenBracket: BlockIndent
 AlignArrayOfStructures: Left
 AllowAllParametersOfDeclarationOnNextLine: false
@@ -12,22 +18,8 @@ ColumnLimit: 130
 AlwaysBreakAfterDefinitionReturnType: None
 AlwaysBreakAfterReturnType: None
 AlwaysBreakTemplateDeclarations: Yes
+
 BreakBeforeBraces: Allman
-BraceWrapping:
-  AfterClass:      true
-  AfterControlStatement: true
-  AfterEnum:       true
-  AfterFunction:   true
-  AfterNamespace:  true
-  AfterStruct:     true
-  AfterUnion:      true
-  AfterExternBlock: true
-  BeforeCatch:     true
-  BeforeElse:      true
-  IndentBraces:    true
-  SplitEmptyFunction: true
-  SplitEmptyRecord: true
-  SplitEmptyNamespace: true
   
 Cpp11BracedListStyle: true
 KeepEmptyLinesAtTheStartOfBlocks: false
@@ -48,10 +40,8 @@ SpaceBeforeParensOptions:
 SpacesInContainerLiterals: false
 Standard:        Cpp11
 
-TabWidth: 2
-UseTab: Always
-
 IndentRequiresClause: false
+
 
 ...
 

@@ -2,3 +2,5 @@ x64/
 .vs
 *.vcxproj.filters
 *.vcxproj.user
+vcpkg_installed/
+enc_temp_folder/

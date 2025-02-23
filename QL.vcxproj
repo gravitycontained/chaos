@@ -71,26 +71,26 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>C:\dev\packages\vcpkg\installed\x64-windows-static\include;.\src\core;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\dev\packages\vcpkg\installed\x64-windows-static\lib;$(LibraryPath)</LibraryPath>
-    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <IncludePath>$(VCPKG_ROOT)\x64-windows-static\include;.\src\core;$(IncludePath)</IncludePath>
+    <LibraryPath>$(VCPKG_ROOT)\x64-windows-static\debug\lib;$(LibraryPath)</LibraryPath>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
     <EnableClangTidyCodeAnalysis>true</EnableClangTidyCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>C:\dev\packages\vcpkg\installed\x64-windows-static\include;.\src\core;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\dev\packages\vcpkg\installed\x64-windows-static\lib;$(LibraryPath)</LibraryPath>
-    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <IncludePath>$(VCPKG_ROOT)\x64-windows-static\include;.\src\core;$(IncludePath)</IncludePath>
+    <LibraryPath>$(VCPKG_ROOT)\x64-windows-static\lib;$(LibraryPath)</LibraryPath>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
     <EnableClangTidyCodeAnalysis>true</EnableClangTidyCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>C:\dev\packages\vcpkg\installed\x64-windows-static\include;.\src\core;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\dev\packages\vcpkg\installed\x64-windows-static\lib;$(LibraryPath)</LibraryPath>
-    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <IncludePath>$(VCPKG_ROOT)\x64-windows-static\include;.\src\core;$(IncludePath)</IncludePath>
+    <LibraryPath>$(VCPKG_ROOT)\x64-windows-static\debug\lib;$(LibraryPath)</LibraryPath>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
     <EnableClangTidyCodeAnalysis>true</EnableClangTidyCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>C:\dev\packages\vcpkg\installed\x64-windows-static\include;.\src\core;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\dev\packages\vcpkg\installed\x64-windows-static\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(VCPKG_ROOT)\x64-windows-static\include;.\src\core;$(IncludePath)</IncludePath>
+    <LibraryPath>$(VCPKG_ROOT)\x64-windows-static\lib;$(LibraryPath)</LibraryPath>
     <RunCodeAnalysis>false</RunCodeAnalysis>
     <EnableClangTidyCodeAnalysis>true</EnableClangTidyCodeAnalysis>
   </PropertyGroup>
@@ -98,15 +98,15 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>SFML_STATIC;QL_EXPORT;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NOMINMAX;SFML_STATIC;QL_EXPORT;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpplatest</LanguageStandard>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>brotlicommon.lib;brotlidec.lib;brotlienc.lib;bz2.lib;FLAC++.lib;FLAC.lib;freetype.lib;GlU32.Lib;libpng16.lib;ogg.lib;OpenAL32.lib;OpenGL32.Lib;sfml-audio-s.lib;sfml-graphics-s.lib;sfml-network-s.lib;sfml-system-s.lib;sfml-window-s.lib;vorbis.lib;vorbisenc.lib;vorbisfile.lib;zlib.lib;opengl32.lib;winmm.lib;gdi32.lib;openal32.lib;flac.lib;ws2_32.lib;libcurl.lib;crypt32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>brotlicommon.lib;brotlidec.lib;brotlienc.lib;bz2d.lib;FLAC++.lib;FLAC.lib;freetyped.lib;GlU32.lib;libpng16d.lib;ogg.lib;OpenAL32.lib;OpenGL32.lib;sfml-audio-s-d.lib;sfml-graphics-s-d.lib;sfml-network-s-d.lib;sfml-system-s-d.lib;sfml-window-s-d.lib;vorbis.lib;vorbisenc.lib;vorbisfile.lib;zlibd.lib;opengl32.lib;winmm.lib;gdi32.lib;openal32.lib;flac.lib;ws2_32.lib;libcurl-d.lib;crypt32.lib;boost_filesystem-vc143-mt-gd-x64-1_86.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PreBuildEvent>
       <Command>clang-format.exe --dry-run --Werror src/main.cpp</Command>
@@ -118,7 +118,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>SFML_STATIC;QL_EXPORT;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NOMINMAX;SFML_STATIC;QL_EXPORT;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
@@ -128,7 +128,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>brotlicommon.lib;brotlidec.lib;brotlienc.lib;bz2.lib;FLAC++.lib;FLAC.lib;freetype.lib;GlU32.Lib;libpng16.lib;ogg.lib;OpenAL32.lib;OpenGL32.Lib;sfml-audio-s.lib;sfml-graphics-s.lib;sfml-network-s.lib;sfml-system-s.lib;sfml-window-s.lib;vorbis.lib;vorbisenc.lib;vorbisfile.lib;zlib.lib;opengl32.lib;winmm.lib;gdi32.lib;openal32.lib;flac.lib;ws2_32.lib;libcurl.lib;crypt32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>brotlicommon.lib;brotlidec.lib;brotlienc.lib;bz2.lib;FLAC++.lib;FLAC.lib;freetype.lib;GlU32.Lib;libpng16.lib;ogg.lib;OpenAL32.lib;OpenGL32.Lib;sfml-audio-s.lib;sfml-graphics-s.lib;sfml-network-s.lib;sfml-system-s.lib;sfml-window-s.lib;vorbis.lib;vorbisenc.lib;vorbisfile.lib;zlib.lib;opengl32.lib;winmm.lib;gdi32.lib;openal32.lib;flac.lib;ws2_32.lib;libcurl.lib;crypt32.lib;boost_filesystem-vc143-mt-x64-1_86.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PreBuildEvent>
       <Command>clang-format.exe --dry-run --Werror src/main.cpp</Command>
@@ -138,18 +138,20 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>SFML_STATIC;QL_EXPORT;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NOMINMAX;SFML_STATIC;QL_EXPORT;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpplatest</LanguageStandard>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>brotlicommon.lib;brotlidec.lib;brotlienc.lib;bz2.lib;FLAC++.lib;FLAC.lib;freetype.lib;GlU32.Lib;libpng16.lib;ogg.lib;OpenAL32.lib;OpenGL32.Lib;sfml-audio-s.lib;sfml-graphics-s.lib;sfml-network-s.lib;sfml-system-s.lib;sfml-window-s.lib;vorbis.lib;vorbisenc.lib;vorbisfile.lib;zlib.lib;opengl32.lib;winmm.lib;gdi32.lib;openal32.lib;flac.lib;ws2_32.lib;libcurl.lib;crypt32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>brotlicommon.lib;brotlidec.lib;brotlienc.lib;bz2d.lib;FLAC++.lib;FLAC.lib;freetyped.lib;GlU32.lib;libpng16d.lib;ogg.lib;OpenAL32.lib;OpenGL32.lib;sfml-audio-s-d.lib;sfml-graphics-s-d.lib;sfml-network-s-d.lib;sfml-system-s-d.lib;sfml-window-s-d.lib;vorbis.lib;vorbisenc.lib;vorbisfile.lib;zlibd.lib;opengl32.lib;winmm.lib;gdi32.lib;openal32.lib;flac.lib;ws2_32.lib;libcurl-d.lib;crypt32.lib;boost_filesystem-vc143-mt-gd-x64-1_86.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PreBuildEvent>
-      <Command>clang-format.exe --dry-run --Werror src/main.cpp</Command>
+      <Command>
+      </Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -158,7 +160,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>SFML_STATIC;QL_CIPHER;NOMINMAX;QL_EXPORT;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NOMINMAX;SFML_STATIC;QL_CIPHER;NOMINMAX;QL_EXPORT;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
@@ -168,7 +170,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>brotlicommon.lib;brotlidec.lib;brotlienc.lib;bz2.lib;FLAC++.lib;FLAC.lib;freetype.lib;GlU32.Lib;libpng16.lib;ogg.lib;OpenAL32.lib;OpenGL32.Lib;sfml-audio-s.lib;sfml-graphics-s.lib;sfml-network-s.lib;sfml-system-s.lib;sfml-window-s.lib;vorbis.lib;vorbisenc.lib;vorbisfile.lib;zlib.lib;opengl32.lib;winmm.lib;gdi32.lib;openal32.lib;flac.lib;ws2_32.lib;libcurl.lib;crypt32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>brotlicommon.lib;brotlidec.lib;brotlienc.lib;bz2.lib;FLAC++.lib;FLAC.lib;freetype.lib;GlU32.Lib;libpng16.lib;ogg.lib;OpenAL32.lib;OpenGL32.Lib;sfml-audio-s.lib;sfml-graphics-s.lib;sfml-network-s.lib;sfml-system-s.lib;sfml-window-s.lib;vorbis.lib;vorbisenc.lib;vorbisfile.lib;zlib.lib;opengl32.lib;winmm.lib;gdi32.lib;openal32.lib;flac.lib;ws2_32.lib;libcurl.lib;crypt32.lib;boost_filesystem-vc143-mt-x64-1_86.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PreBuildEvent>
       <Command>
@@ -176,63 +178,82 @@
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src/main.cpp" />
-  </ItemGroup>	<ItemGroup>
-		<ClCompile Include="src/core/ql/core/file-system/action/action.cpp" />
-		<ClCompile Include="src/core/ql/core/advanced-type/memory/save-state.cpp" />
+    <ClCompile Include="src\main.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NOMINMAX;SFML_STATIC;FORCE_REBUILD=1;QL_EXPORT;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NOMINMAX;SFML_STATIC;FORCE_REBUILD=1;QL_EXPORT;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NOMINMAX;SFML_STATIC;FORCE_REBUILD=1;QL_EXPORT;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NOMINMAX;SFML_STATIC;FORCE_REBUILD=1;QL_CIPHER;NOMINMAX;QL_EXPORT;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+		<ClCompile Include="src/core/ql/core/advanced-type/signal/signal-update-manager/signal-update-manager.cpp" />
+		<ClCompile Include="src/core/ql/core/time/animation/animation.cpp" />
 		<ClCompile Include="src/core/ql/core/advanced-type/camera/camera.cpp" />
-		<ClCompile Include="src/core/ql/core/encryption/cipher/custom.cpp" />
+		<ClCompile Include="src/core/ql/core/string/format/format.cpp" />
+		<ClCompile Include="src/core/ql/core/system/clipboard/clipboard.cpp" />
+		<ClCompile Include="src/core/ql/core/encryption/hash/mgf1/mgf1.cpp" />
+		<ClCompile Include="src/core/ql/core/async/interval/interval.cpp" />
+		<ClCompile Include="src/core/ql/core/time/clock/small-clock/small-clock.cpp" />
+		<ClCompile Include="src/core/ql/core/advanced-type/color/rgb/rgb.cpp" />
+		<ClCompile Include="src/core/ql/core/encryption/hash/sha256/sha256.cpp" />
+		<ClCompile Include="src/core/ql/core/string/format/memory/memory.cpp" />
+		<ClCompile Include="src/core/ql/core/encryption/hash/sha512/sha512.cpp" />
+		<ClCompile Include="src/core/ql/core/time/benchmark/benchmark.cpp" />
+		<ClCompile Include="src/core/ql/core/file-system/action/action.cpp" />
+		<ClCompile Include="src/core/ql/core/network/https/https.cpp" />
+		<ClCompile Include="src/core/ql/core/system/input/input.cpp" />
+		<ClCompile Include="src/core/ql/core/file-system/path/path.cpp" />
+		<ClCompile Include="src/core/ql/core/time/time/time.cpp" />
+		<ClCompile Include="src/core/ql/core/file-system/paths/paths.cpp" />
+		<ClCompile Include="src/core/ql/core/network/socket/socket.cpp" />
+		<ClCompile Include="src/core/ql/core/system/pause/pause.cpp" />
+		<ClCompile Include="src/core/ql/core/advanced-type/iterative/ema.cpp" />
+		<ClCompile Include="src/core/ql/core/random/random.cpp" />
+		<ClCompile Include="src/core/ql/core/time/clock/clock/clock.cpp" />
+		<ClCompile Include="src/core/ql/core/system/print/print.cpp" />
+		<ClCompile Include="src/core/ql/core/advanced-type/memory/save-state.cpp" />
+		<ClCompile Include="src/core/ql/core/string/base/base.cpp" />
 		<ClCompile Include="src/core/ql/core/advanced-type/memory/string-collection.cpp" />
 		<ClCompile Include="src/core/ql/core/time/fps-counter/fps-counter.cpp" />
-		<ClCompile Include="src/core/ql/core/time/clock/small-clock/small-clock.cpp" />
-		<ClCompile Include="src/core/ql/core/string/base/base.cpp" />
-		<ClCompile Include="src/core/ql/core/advanced-type/color/rgb/rgb.cpp" />
-		<ClCompile Include="src/core/ql/core/system/input/input.cpp" />
-		<ClCompile Include="src/core/ql/core/encryption/hash/mgf1/mgf1.cpp" />
 		<ClCompile Include="src/core/ql/core/string/cast/cast.cpp" />
-		<ClCompile Include="src/core/ql/core/encryption/hash/sha256/sha256.cpp" />
-		<ClCompile Include="src/core/ql/core/time/animation/animation.cpp" />
-		<ClCompile Include="src/core/ql/core/encryption/hash/sha512/sha512.cpp" />
-		<ClCompile Include="src/core/ql/core/system/pause/pause.cpp" />
-		<ClCompile Include="src/core/ql/core/string/format/format.cpp" />
-		<ClCompile Include="src/core/ql/core/time/clock/clock/clock.cpp" />
-		<ClCompile Include="src/core/ql/core/string/format/memory/memory.cpp" />
-		<ClCompile Include="src/core/ql/core/file-system/path/path.cpp" />
-		<ClCompile Include="src/core/ql/core/network/https/https.cpp" />
-		<ClCompile Include="src/core/ql/core/file-system/paths/paths.cpp" />
-		<ClCompile Include="src/core/ql/core/system/print/print.cpp" />
-		<ClCompile Include="src/core/ql/core/system/clipboard/clipboard.cpp" />
-		<ClCompile Include="src/core/ql/core/advanced-type/iterative/ema.cpp" />
-		<ClCompile Include="src/core/ql/core/network/socket/socket.cpp" />
-		<ClCompile Include="src/core/ql/core/time/benchmark/benchmark.cpp" />
-		<ClCompile Include="src/core/ql/core/random/random.cpp" />
-		<ClCompile Include="src/core/ql/core/time/time/time.cpp" />
 		<ClCompile Include="src/core/ql/core/time/timed-task/timed-task.cpp" />
+		<ClCompile Include="src/core/ql/core/encryption/cipher/custom.cpp" />
 		<ClCompile Include="src/core/ql/graphic/drawable/advanced/polygon/polygon.cpp" />
 		<ClCompile Include="src/core/ql/graphic/drawable/advanced/smooth-button/smooth-button.cpp" />
 		<ClCompile Include="src/core/ql/graphic/drawable/advanced/smooth-rectangle/smooth-rectangle.cpp" />
 		<ClCompile Include="src/core/ql/graphic/drawable/basic/sprite/sprite.cpp" />
 		<ClCompile Include="src/core/ql/graphic/drawable/basic/text/text.cpp" />
 		<ClCompile Include="src/core/ql/graphic/drawable/virtual-draw-object/vdo.cpp" />
-		<ClCompile Include="src/core/ql/graphic/event/event-manager/event-manager.cpp" />
+		<ClCompile Include="src/core/ql/graphic/event/event.cpp" />
 		<ClCompile Include="src/core/ql/graphic/old-drawable/drawables.cpp" />
 		<ClCompile Include="src/core/ql/graphic/old-drawable/ui-controls.cpp" />
 		<ClCompile Include="src/core/ql/graphic/render/texture/texture.cpp" />
 		<ClCompile Include="src/core/ql/graphic/resources/resources.cpp" />
 		<ClCompile Include="src/core/ql/graphic/state/base-state/base-state.cpp" />
 		<ClCompile Include="src/core/ql/graphic/state/state-manager/state-manager.cpp" />
+		<ClCompile Include="src/core/ql/graphic/sync/check-uninitialized/check-uninitialized.cpp" />
+		<ClCompile Include="src/core/ql/graphic/sync/type/type.cpp" />
 		<ClCompile Include="src/core/ql/graphic/util/util-sprite/util-sprite.cpp" />
 		<ClCompile Include="src/core/ql/graphic/util/util-text/util-text.cpp" />
 		<ClCompile Include="src/_template/core/x.cpp" />
 		<ClCompile Include="src/_template/graphic/g.cpp" />
-		<ClInclude Include="src/core/ql/core/advanced-type/fundamental/straight-line.hpp" />
-		<ClInclude Include="src/core/ql/core/advanced-type/fundamental/vector.hpp" />
 		<ClInclude Include="src/core/ql/core/advanced-type/iterative/ema.hpp" />
 		<ClInclude Include="src/core/ql/core/advanced-type/iterative/iterative.hpp" />
 		<ClInclude Include="src/core/ql/core/advanced-type/memory/memory.hpp" />
 		<ClInclude Include="src/core/ql/core/advanced-type/memory/save-state.hpp" />
+		<ClInclude Include="src/core/ql/core/advanced-type/memory/string-collection.hpp" />
+		<ClInclude Include="src/core/ql/core/advanced-type/signal/connection/connection.hpp" />
+		<ClInclude Include="src/core/ql/core/advanced-type/signal/effect.hpp" />
+		<ClInclude Include="src/core/ql/core/advanced-type/signal/signal/signal.hpp" />
+		<ClInclude Include="src/core/ql/core/advanced-type/signal/signal-update-manager/signal-update-manager.hpp" />
+		<ClInclude Include="src/core/ql/core/advanced-type/signal/signal.hpp" />
 		<ClInclude Include="src/core/ql/core/advanced-type/view/view.hpp" />
 		<ClInclude Include="src/core/ql/core/async/async.hpp" />
+		<ClInclude Include="src/core/ql/core/async/interval/interval.hpp" />
 		<ClInclude Include="src/core/ql/core/async/promise.hpp" />
 		<ClInclude Include="src/core/ql/core/async/worker-queue.hpp" />
 		<ClInclude Include="src/core/ql/core/constexpr/apply.hpp" />
@@ -245,6 +266,7 @@
 		<ClInclude Include="src/core/ql/core/core.hpp" />
 		<ClInclude Include="src/core/ql/core/definition/arithmetic-type.hpp" />
 		<ClInclude Include="src/core/ql/core/definition/container.hpp" />
+		<ClInclude Include="src/core/ql/core/definition/debug.hpp" />
 		<ClInclude Include="src/core/ql/core/definition/definition.hpp" />
 		<ClInclude Include="src/core/ql/core/definition/library/library.hpp" />
 		<ClInclude Include="src/core/ql/core/definition/library/macro.hpp" />
@@ -257,7 +279,6 @@
 		<ClInclude Include="src/core/ql/core/encryption/hash/mgf1/mgf1.hpp" />
 		<ClInclude Include="src/core/ql/core/encryption/hash/sha256/sha256.hpp" />
 		<ClInclude Include="src/core/ql/core/encryption/hash/sha512/sha512.hpp" />
-		<ClInclude Include="src/core/ql/core/advanced-type/memory/string-collection.hpp" />
 		<ClInclude Include="src/core/ql/core/file-system/action/action.hpp" />
 		<ClInclude Include="src/core/ql/core/file-system/file-system.hpp" />
 		<ClInclude Include="src/core/ql/core/file-system/path/path.hpp" />
@@ -266,6 +287,7 @@
 		<ClInclude Include="src/core/ql/core/functional/functional.hpp" />
 		<ClInclude Include="src/core/ql/core/functional/iterate/iterate.hpp" />
 		<ClInclude Include="src/core/ql/core/functional/recursive-iterate.hpp" />
+		<ClInclude Include="src/core/ql/core/injection/injection.hpp" />
 		<ClInclude Include="src/core/ql/core/maths/arithmetic/arithmetic.hpp" />
 		<ClInclude Include="src/core/ql/core/maths/circular/circular.hpp" />
 		<ClInclude Include="src/core/ql/core/maths/circular/rotate.hpp" />
@@ -279,10 +301,12 @@
 		<ClInclude Include="src/core/ql/core/network/network.hpp" />
 		<ClInclude Include="src/core/ql/core/network/socket/socket.hpp" />
 		<ClInclude Include="src/core/ql/core/random/random.hpp" />
+		<ClInclude Include="src/core/ql/core/serialize/serialize.hpp" />
 		<ClInclude Include="src/core/ql/core/string/base/base.hpp" />
 		<ClInclude Include="src/core/ql/core/string/cast/cast.hpp" />
 		<ClInclude Include="src/core/ql/core/string/compare.hpp" />
 		<ClInclude Include="src/core/ql/core/string/format/format.hpp" />
+		<ClInclude Include="src/core/ql/core/string/format/join.hpp" />
 		<ClInclude Include="src/core/ql/core/string/format/memory/memory.hpp" />
 		<ClInclude Include="src/core/ql/core/string/format/options.hpp" />
 		<ClInclude Include="src/core/ql/core/string/format/precision/precision.hpp" />
@@ -303,12 +327,9 @@
 		<ClInclude Include="src/core/ql/core/time/clock/clock/clock.hpp" />
 		<ClInclude Include="src/core/ql/core/time/clock/clock.hpp" />
 		<ClInclude Include="src/core/ql/core/time/clock/small-clock/small-clock.hpp" />
-		<ClInclude Include="src/core/.git" />
 		<ClInclude Include="src/core/ql/core/time/fps-counter/fps-counter.hpp" />
-		<ClInclude Include="src/core/ql/core/advanced-type/advanced-type.hpp" />
 		<ClInclude Include="src/core/ql/core/time/time/time.hpp" />
 		<ClInclude Include="src/core/ql/core/time/time.hpp" />
-		<ClInclude Include="src/core/ql/core/advanced-type/camera/camera.hpp" />
 		<ClInclude Include="src/core/ql/core/time/timed-task/timed-task.hpp" />
 		<ClInclude Include="src/core/ql/core/transform/bit/bit.hpp" />
 		<ClInclude Include="src/core/ql/core/transform/bit/memory-size.hpp" />
@@ -318,11 +339,13 @@
 		<ClInclude Include="src/core/ql/core/transform/container/filter.hpp" />
 		<ClInclude Include="src/core/ql/core/transform/container/map.hpp" />
 		<ClInclude Include="src/core/ql/core/transform/container/remove-index.hpp" />
+		<ClInclude Include="src/core/ql/core/transform/container/slice.hpp" />
 		<ClInclude Include="src/core/ql/core/transform/interpolate/cubic.hpp" />
 		<ClInclude Include="src/core/ql/core/transform/interpolate/interpolate.hpp" />
 		<ClInclude Include="src/core/ql/core/transform/interpolate/linear.hpp" />
 		<ClInclude Include="src/core/ql/core/transform/limit.hpp" />
 		<ClInclude Include="src/core/ql/core/transform/memory/memory.hpp" />
+		<ClInclude Include="src/core/ql/core/transform/modal-apply.hpp" />
 		<ClInclude Include="src/core/ql/core/transform/possibilities.hpp" />
 		<ClInclude Include="src/core/ql/core/transform/round.hpp" />
 		<ClInclude Include="src/core/ql/core/transform/shuffle.hpp" />
@@ -352,10 +375,13 @@
 		<ClInclude Include="src/core/ql/core/type/functional/functional.hpp" />
 		<ClInclude Include="src/core/ql/core/type/graphic/graphic.hpp" />
 		<ClInclude Include="src/core/ql/core/type/identity.hpp" />
+		<ClInclude Include="src/core/ql/core/type/modal-decay.hpp" />
 		<ClInclude Include="src/core/ql/core/type/numeric.hpp" />
+		<ClInclude Include="src/core/ql/core/type/pointer/pointer.hpp" />
 		<ClInclude Include="src/core/ql/core/type/recursive/flat.hpp" />
 		<ClInclude Include="src/core/ql/core/type/recursive/recursive.hpp" />
 		<ClInclude Include="src/core/ql/core/type/reference.hpp" />
+		<ClInclude Include="src/core/ql/core/type/reflection/reflection.hpp" />
 		<ClInclude Include="src/core/ql/core/type/signal.hpp" />
 		<ClInclude Include="src/core/ql/core/type/string/has-to-string.hpp" />
 		<ClInclude Include="src/core/ql/core/type/string/info.hpp" />
@@ -369,7 +395,8 @@
 		<ClInclude Include="src/core/ql/core/type/transform/to-tuple.hpp" />
 		<ClInclude Include="src/core/ql/core/type/transform/transform.hpp" />
 		<ClInclude Include="src/core/ql/core/type/transform/tuple-to-array.hpp" />
-		<ClInclude Include="src/core/ql/core/type/tuple/auto-tie.hpp" />
+		<ClInclude Include="src/core/ql/core/type/tuple/concat.hpp" />
+		<ClInclude Include="src/core/ql/core/type/tuple/find-index.hpp" />
 		<ClInclude Include="src/core/ql/core/type/tuple/is-tuple.hpp" />
 		<ClInclude Include="src/core/ql/core/type/tuple/size.hpp" />
 		<ClInclude Include="src/core/ql/core/type/tuple/tuple.hpp" />
@@ -381,73 +408,95 @@
 		<ClInclude Include="src/core/ql/core/type/variadic/value.hpp" />
 		<ClInclude Include="src/core/ql/core/type/variadic/variadic.hpp" />
 		<ClInclude Include="src/core/ql/graphic/drawable/advanced/advanced.hpp" />
-		<ClInclude Include="src/core/ql/core/advanced-type/color/color.hpp" />
 		<ClInclude Include="src/core/ql/graphic/drawable/advanced/polygon/polygon.hpp" />
-		<ClInclude Include="src/core/ql/core/advanced-type/color/multiplied-color.hpp" />
+		<ClInclude Include="src/core/ql/core/advanced-type/advanced-type.hpp" />
 		<ClInclude Include="src/core/ql/graphic/drawable/advanced/smooth-button/smooth-button.hpp" />
-		<ClInclude Include="src/core/ql/core/advanced-type/color/oklch/oklch.hpp" />
+		<ClInclude Include="src/core/ql/core/advanced-type/camera/camera.hpp" />
 		<ClInclude Include="src/core/ql/graphic/drawable/advanced/smooth-rectangle/smooth-rectangle.hpp" />
 		<ClInclude Include="src/core/ql/graphic/drawable/basic/basic.hpp" />
-		<ClInclude Include="src/core/ql/core/advanced-type/color/print-color.hpp" />
+		<ClInclude Include="src/core/ql/core/advanced-type/color/color.hpp" />
 		<ClInclude Include="src/core/ql/graphic/drawable/basic/sprite/sprite.hpp" />
-		<ClInclude Include="src/core/ql/core/advanced-type/color/rgb/rgb.hpp" />
+		<ClInclude Include="src/core/ql/core/advanced-type/color/multiplied-color.hpp" />
 		<ClInclude Include="src/core/ql/graphic/drawable/basic/text/text.hpp" />
 		<ClInclude Include="src/core/ql/graphic/drawable/drawable.hpp" />
-		<ClInclude Include="src/core/ql/core/advanced-type/container/array.hpp" />
+		<ClInclude Include="src/core/ql/core/advanced-type/color/oklch/oklch.hpp" />
 		<ClInclude Include="src/core/ql/graphic/drawable/virtual-draw-object/vdo.hpp" />
-		<ClInclude Include="src/core/ql/core/advanced-type/container/bitset.hpp" />
-		<ClInclude Include="src/core/ql/graphic/event/event-manager/event-manager.hpp" />
+		<ClInclude Include="src/core/ql/core/advanced-type/color/print-color.hpp" />
 		<ClInclude Include="src/core/ql/graphic/event/event.hpp" />
 		<ClInclude Include="src/core/ql/graphic/graphic.hpp" />
-		<ClInclude Include="src/core/ql/core/advanced-type/container/circular-array.hpp" />
+		<ClInclude Include="src/core/ql/graphic/init/init.hpp" />
+		<ClInclude Include="src/core/ql/core/advanced-type/color/rgb/rgb.hpp" />
 		<ClInclude Include="src/core/ql/graphic/old-drawable/drawables.hpp" />
-		<ClInclude Include="src/core/ql/core/advanced-type/container/container.hpp" />
+		<ClInclude Include="src/core/ql/core/advanced-type/container/array.hpp" />
 		<ClInclude Include="src/core/ql/graphic/old-drawable/ui-controls.hpp" />
 		<ClInclude Include="src/core/ql/graphic/render/render.hpp" />
-		<ClInclude Include="src/core/ql/core/advanced-type/container/vector.hpp" />
+		<ClInclude Include="src/core/ql/core/advanced-type/container/bitset.hpp" />
 		<ClInclude Include="src/core/ql/graphic/render/texture/texture.hpp" />
 		<ClInclude Include="src/core/ql/graphic/render/type/type.hpp" />
-		<ClInclude Include="src/core/ql/core/advanced-type/functional/effect.hpp" />
+		<ClInclude Include="src/core/ql/core/advanced-type/container/circular-array.hpp" />
 		<ClInclude Include="src/core/ql/graphic/resources/resources.hpp" />
-		<ClInclude Include="src/core/ql/core/advanced-type/functional/functional.hpp" />
+		<ClInclude Include="src/core/ql/core/advanced-type/container/container.hpp" />
 		<ClInclude Include="src/core/ql/graphic/state/base-state/base-state.hpp" />
-		<ClInclude Include="src/core/ql/core/advanced-type/functional/signal.hpp" />
+		<ClInclude Include="src/core/ql/core/advanced-type/container/vector.hpp" />
 		<ClInclude Include="src/core/ql/graphic/state/state-manager/state-manager.hpp" />
 		<ClInclude Include="src/core/ql/graphic/state/state.hpp" />
 		<ClInclude Include="src/core/ql/core/advanced-type/fundamental/circle.hpp" />
-		<ClInclude Include="src/core/ql/graphic/util/util-sprite/util-sprite.hpp" />
+		<ClInclude Include="src/core/ql/graphic/sync/check-uninitialized/check-uninitialized.hpp" />
+		<ClInclude Include="src/core/ql/graphic/sync/draw.hpp" />
+		<ClInclude Include="src/core/ql/graphic/sync/init.hpp" />
+		<ClInclude Include="src/core/ql/graphic/sync/list.hpp" />
+		<ClInclude Include="src/core/ql/graphic/sync/macro.hpp" />
+		<ClInclude Include="src/core/ql/graphic/sync/provide.hpp" />
+		<ClInclude Include="src/core/ql/graphic/sync/state.hpp" />
+		<ClInclude Include="src/core/ql/graphic/sync/sync.hpp" />
 		<ClInclude Include="src/core/ql/core/advanced-type/fundamental/fundamental.hpp" />
+		<ClInclude Include="src/core/ql/graphic/sync/type/type.hpp" />
+		<ClInclude Include="src/core/ql/graphic/sync/update.hpp" />
+		<ClInclude Include="src/core/ql/graphic/update/update.hpp" />
+		<ClInclude Include="src/core/ql/core/advanced-type/fundamental/hitbox.hpp" />
+		<ClInclude Include="src/core/ql/graphic/util/util-sprite/util-sprite.hpp" />
+		<ClInclude Include="src/core/ql/core/advanced-type/fundamental/matrix.hpp" />
 		<ClInclude Include="src/core/ql/graphic/util/util-text/util-text.hpp" />
 		<ClInclude Include="src/core/ql/graphic/util/util.hpp" />
-		<ClInclude Include="src/core/ql/graphic/view-control.hpp" />
+		<ClInclude Include="src/core/ql/graphic/view/view-control.hpp" />
+		<ClInclude Include="src/core/ql/graphic/view/view.hpp" />
+		<ClInclude Include="src/core/ql/new/drawable/drawable.hpp" />
+		<ClInclude Include="src/core/ql/new/drawable-shape/circle.hpp" />
+		<ClInclude Include="src/core/ql/new/drawable-shape/polygon.hpp" />
+		<ClInclude Include="src/core/ql/new/drawable-shape/rectangle.hpp" />
+		<ClInclude Include="src/core/ql/new/hitbox-interaction.hpp" />
+		<ClInclude Include="src/core/ql/new/new.hpp" />
+		<ClInclude Include="src/core/ql/new/rectangle/rectangle.hpp" />
+		<ClInclude Include="src/core/ql/new/shape/circle.hpp" />
+		<ClInclude Include="src/core/ql/new/shape/polygon.hpp" />
+		<ClInclude Include="src/core/ql/new/shape/rectangle.hpp" />
+		<ClInclude Include="src/core/ql/new/shape/shape.hpp" />
+		<ClInclude Include="src/core/ql/new/shape/straight-line.hpp" />
+		<ClInclude Include="src/core/ql/new/state-progression.hpp" />
 		<ClInclude Include="src/core/ql/ql.hpp" />
 		<ClInclude Include="src/fix-vcxproj.hpp" />
 		<ClInclude Include="src/graphic.hpp" />
 		<ClInclude Include="src/other/disc-analysis.hpp" />
 		<ClInclude Include="src/serialize.hpp" />
-		<ClInclude Include="src/core/ql/core/advanced-type/fundamental/hitbox.hpp" />
+		<ClInclude Include="src/core/ql/core/advanced-type/fundamental/straight-line.hpp" />
 		<ClInclude Include="src/_template/core/x.hpp" />
-		<ClInclude Include="src/core/ql/core/advanced-type/fundamental/matrix.hpp" />
+		<ClInclude Include="src/core/ql/core/advanced-type/fundamental/vector.hpp" />
 		<ClInclude Include="src/_template/graphic/g.hpp" />
 	</ItemGroup>
   <ItemGroup>
-    <ClInclude Include=".clang-format" />
-    <ClInclude Include=".clang-tidy" />
-    <ClInclude Include=".gitignore" />
-    <ClInclude Include=".gitmodules" />
-    <ClInclude Include="fix-vcxproj.exe" />
-    <ClInclude Include="format-all.bat" />
-    <ClInclude Include="run.bat" />
-    <ClInclude Include="README.md" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="install-vcpkg-static.bat" />
-    <None Include="install-vcpkg.bat" />
+    <None Include=".clang-format" />
+    <None Include=".clang-tidy" />
+    <None Include=".gitignore" />
+    <None Include=".gitmodules" />
+    <None Include="README.md" />
     <None Include="script-init-submodule.sh" />
+    <None Include="script-install-vcpkg-static.bat" />
     <None Include="script-pull.sh" />
+    <None Include="script-run.bat" />
     <None Include="script-sync-submodules.sh" />
-    <None Include="script-sync-template.sh" />
     <None Include="sync-submodules.bat" />
+    <None Include="Uzumaki.exe" />
+    <None Include="Uzumaki.vcxproj.bak" />
     <None Include="vcpkg.json" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
