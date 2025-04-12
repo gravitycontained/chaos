@@ -1,11 +1,18 @@
 #include <ql/ql.hpp>
 
-#include "fix-vcxproj.hpp"
-#include "graphic.hpp"
+#include "app.hpp"
+#include "model/constants.hpp"
 
 int main() try
 {
-	graphic::run();
+	ql::state_manager state_manager;
+	state_manager.set_title("ql");
+	state_manager.set_antialiasing_level(12);
+	state_manager.set_dimension({ 1400u, 950u });
+	state_manager.set_framerate_limit(constants::ticks_per_second);
+
+	state_manager.add_state<app_state>();
+	state_manager.game_loop();
 }
 catch (const std::exception& any)
 {
