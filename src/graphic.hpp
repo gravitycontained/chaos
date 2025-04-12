@@ -6,7 +6,7 @@
 
 struct main_example
 {
-	ql_sync;
+	ql_sync();
 
 	void init()
 	{
@@ -24,7 +24,7 @@ struct main_example
 struct main_state : ql::base_state
 {
 	main_example main;
-	ql_state_sync(this->main);
+	ql_sync_state(this->main);
 };
 
 namespace graphic

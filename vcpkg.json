@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "dependencies": [
     "brotli",
-    "boost",
     "bzip2",
     "curl",
     "glew",

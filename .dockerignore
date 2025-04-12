@@ -1,0 +1,14 @@
+.vs/
+x64/
+.vscode/
+.git/
+.gitmodules
+*.user
+*.log
+*.pdb
+*.idb
+*.ipch
+*.db
+*.obj
+*.exe
+vcpkg_installed/
